@@ -27,7 +27,7 @@ public class Encourager {
            System.exit(0);
         }
         
-    public static void runcode() {
+    public static void runCode() {
     
         
         
@@ -141,12 +141,12 @@ public class Encourager {
                 + "Where we aim to lift you up in the name of Jesus! \n");
         
            //Run App 
-           Encourager.runcode();
+           Encourager.runCode();
        
            //Loop to give you more prayer
            do{
                System.out.println("\n Ok Great! \n");
-               Encourager.runcode();
+               Encourager.runCode();
            } while (again.equalsIgnoreCase("y") || (again.equalsIgnoreCase("yes")));
     }
 }

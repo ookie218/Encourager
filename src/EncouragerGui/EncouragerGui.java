@@ -6,11 +6,15 @@
 package EncouragerGui;
 
 import encourager.Encourager;
+import java.util.Scanner;
 
 /**
  *
  * @author ookie
  */
+
+
+
 public class EncouragerGui extends javax.swing.JFrame {
 
     /**
@@ -31,12 +35,12 @@ public class EncouragerGui extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        yourNeed = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        ourEncouragement = new javax.swing.JTextArea();
+        encourageMe = new javax.swing.JButton();
+        responseYes = new javax.swing.JButton();
+        responseNo = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -48,29 +52,34 @@ public class EncouragerGui extends javax.swing.JFrame {
 
         jLabel2.setText("What are you in need of today? ");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        yourNeed.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                yourNeedActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        ourEncouragement.setColumns(20);
+        ourEncouragement.setRows(5);
+        jScrollPane1.setViewportView(ourEncouragement);
 
-        jButton1.setText("Encourage Me");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        encourageMe.setText("Encourage Me");
+        encourageMe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                encourageMeActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Yes");
-
-        jButton3.setText("No");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        responseYes.setText("Yes");
+        responseYes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                responseYesActionPerformed(evt);
+            }
+        });
+
+        responseNo.setText("No");
+        responseNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                responseNoActionPerformed(evt);
             }
         });
 
@@ -90,9 +99,9 @@ public class EncouragerGui extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton2)
+                        .addComponent(responseYes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3)
+                        .addComponent(responseNo)
                         .addGap(83, 83, 83))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -102,11 +111,11 @@ public class EncouragerGui extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(yourNeed, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(192, 192, 192)
-                        .addComponent(jButton1)))
+                        .addComponent(encourageMe)))
                 .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -126,35 +135,168 @@ public class EncouragerGui extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yourNeed, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(encourageMe, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(responseYes)
+                    .addComponent(responseNo))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    
+            //Scanner object initiated
+        static Scanner sc = new Scanner(System.in);
+//        //String used to gague response
+//        static String again;
+        static String need;
+        
+        public static void outro() {
+           //Ending message (Will run after loop runs)
+           System.out.println("\n Thank You for using The Encourager. May the Lord"
+                    + " bless you in Your walk with Him! \n");
+           System.exit(0);
+        }
+        
+    public static void runCode() {
+    
+        
+        
+        System.out.println("What are you in need of today?\n");
+        
+        
+            //Read in response
+            need = sc.next();
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+            if (need.equalsIgnoreCase("nothing") || need.equalsIgnoreCase("no") || 
+                    need.equalsIgnoreCase("exit")|| need.equalsIgnoreCase("stop")) {
+                //Stop program
+                outro();
+            }
+            
+            //What if response isn't what I accounted for?
+            //While "answer" is not equal to x AND not equal to y AND not equal to z...
+            while(!need.equalsIgnoreCase("money") && !need.equalsIgnoreCase("bills") && 
+                !need.equalsIgnoreCase("finances") && !need.equalsIgnoreCase("cash") && 
+                !need.equalsIgnoreCase("tithing") && !need.equalsIgnoreCase("provision") &&
+                !need.equalsIgnoreCase("healing") && !need.equalsIgnoreCase("healer") && 
+                !need.equalsIgnoreCase("health") && !need.equalsIgnoreCase("sick") && 
+                !need.equalsIgnoreCase("sickness") && !need.equalsIgnoreCase("doctor") &&
+                !need.equalsIgnoreCase("depression") && !need.equalsIgnoreCase("depressed") && 
+                !need.equalsIgnoreCase("uplift") && !need.equalsIgnoreCase("uplifted") && 
+                !need.equalsIgnoreCase("encouragement") && !need.equalsIgnoreCase("depression") && 
+                !need.equalsIgnoreCase("depressed") && 
+                !need.equalsIgnoreCase("uplift") && !need.equalsIgnoreCase("uplifted") && 
+                !need.equalsIgnoreCase("encouragement") && !need.equalsIgnoreCase("pray") && 
+                !need.equalsIgnoreCase("prayer") && !need.equalsIgnoreCase("wisdom") && 
+                !need.equalsIgnoreCase("wise") && !need.equalsIgnoreCase("proverbs") && 
+                !need.equalsIgnoreCase("learning") && !need.equalsIgnoreCase("learn") &&
+                !need.equalsIgnoreCase("love") && !need.equalsIgnoreCase("lust") && 
+                !need.equalsIgnoreCase("marriage") && !need.equalsIgnoreCase("engagement") && 
+                !need.equalsIgnoreCase("sex")) {
+            System.out.println("\n I'm sorry, we don't recognize that answer. Please try again. \n"
+                    + "What's your need?");
+            need = sc.next();
+            if (need.equalsIgnoreCase("nothing") || need.equalsIgnoreCase("no") || 
+                    need.equalsIgnoreCase("exit")|| need.equalsIgnoreCase("stop")) {
+                outro();
+                }
+            }
+                
+            //Finance options we recognize for comparison
+            if (need.equalsIgnoreCase("money") || need.equalsIgnoreCase("bills") || 
+                need.equalsIgnoreCase("finances") || need.equalsIgnoreCase("cash") || 
+                need.equalsIgnoreCase("tithing") || need.equalsIgnoreCase("provision")) {    
+            encourager.Finances.finResp();
+            }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+            //Healing options we recognize for comparison
+            if (need.equalsIgnoreCase("healing") || need.equalsIgnoreCase("healer") || 
+                need.equalsIgnoreCase("health") || need.equalsIgnoreCase("sick") || 
+                need.equalsIgnoreCase("sickness") || need.equalsIgnoreCase("doctor")) {    
+            encourager.Healing.healResp();
+            }
+
+            //Encouragement options we recognize for comparison
+            if (need.equalsIgnoreCase("depression") || need.equalsIgnoreCase("depressed") || 
+                need.equalsIgnoreCase("uplift") || need.equalsIgnoreCase("uplifted") || 
+                need.equalsIgnoreCase("encouragement")) {    
+            encourager.Encouragement.encResp();
+            }
+
+            //Prayer options we recognize for comparison
+            if (need.equalsIgnoreCase("pray") || need.equalsIgnoreCase("prayer")) {    
+            encourager.Prayer.prayResp();
+            }
+
+            //Wisdom options we recognize for comparison
+            if (need.equalsIgnoreCase("wisdom") || need.equalsIgnoreCase("wise") || 
+                need.equalsIgnoreCase("proverbs") || need.equalsIgnoreCase("learning") || 
+                need.equalsIgnoreCase("learn")) {    
+            encourager.Wisdom.wiseResp();
+            }
+
+            //Love options we recognize for comparison
+            if (need.equalsIgnoreCase("love") || need.equalsIgnoreCase("lust") || 
+                need.equalsIgnoreCase("marriage") || need.equalsIgnoreCase("engagement") || 
+                need.equalsIgnoreCase("sex")) {    
+            encourager.Love.loveResp();
+            }
+            
+            System.out.println("\n\n Thank you for allowing us to encourage you. \n "
+                    + "I hope this really helped and ministered to Your need. \n "
+                    + "Is there another need we can help you with?\n\n");
+            
+            //Instantiates need for repsonse
+//            again = sc.next();
+//
+//            while (!again.equalsIgnoreCase("y") && (!again.equalsIgnoreCase("yes"))
+//                     && (!again.equalsIgnoreCase("n")) && (!again.equalsIgnoreCase("no"))) {
+//            System.out.println("Please answer again but this time using only yes or no...");
+//            again = sc.next();
+//            }
+//            
+//            //Go again?
+//            if (again.equalsIgnoreCase("no") || again.equalsIgnoreCase("n")) {
+//            //Ending message and stop program              
+//            outro();
+//            }
+            
+        }
+    
+    private void encourageMeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encourageMeActionPerformed
+        // TODO add your handling code here:
+        yourNeed.getText();
+        
+        
+        
+        runCode();
+    }//GEN-LAST:event_encourageMeActionPerformed
+
+    private void yourNeedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yourNeedActionPerformed
+        // TODO add your handling code here:
+        need = sc.next();
+    }//GEN-LAST:event_yourNeedActionPerformed
+
+    private void responseNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responseNoActionPerformed
         Encourager.outro();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_responseNoActionPerformed
+
+    private void responseYesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responseYesActionPerformed
+        // TODO add your handling code here:
+        //again = sc.next("Yes"); - May not need
+        yourNeed.setText("");
+        ourEncouragement.setText("");
+    }//GEN-LAST:event_responseYesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -192,15 +334,15 @@ public class EncouragerGui extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton encourageMe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextArea ourEncouragement;
+    private javax.swing.JButton responseNo;
+    private javax.swing.JButton responseYes;
+    private javax.swing.JTextField yourNeed;
     // End of variables declaration//GEN-END:variables
 }
